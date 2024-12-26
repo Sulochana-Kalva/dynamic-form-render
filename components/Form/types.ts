@@ -1,10 +1,10 @@
 export interface FormProps {
     formTitle: string,
     formDescription: string
-    fields: Field[]
+    fields: FieldProps[]
 }
 
-export interface Field {
+export interface FieldProps {
 
     id: string
     type: string
@@ -17,8 +17,14 @@ export interface Field {
         minLength?: number
         maxLength?: number
     },
+    options?: Option[]
+minLength?: number | string
+maxLength?: number | string
 }
 
+export interface Option {
+    value:string, label: string
+}
 export interface FormData  {
     [key:string] : string
 }

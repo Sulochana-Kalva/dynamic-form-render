@@ -1,10 +1,10 @@
 'use client'
-import { Field, FormData, FormProps } from './types'
+import { FieldProps, FormData, FormProps } from './types'
 import { componentList } from '../../utils/componentMapper'
 import React, { useEffect, useState } from 'react'
 import { ComponentMapper } from '@/utils/types'
 
-const initilizeFormData = (data: Field[]) => {
+const initilizeFormData = (data: FieldProps[]) => {
     let formData: FormData = {}
     data.forEach(element => {
         formData[element.id] = ''
@@ -25,9 +25,9 @@ const Form = ({ formTitle, formDescription, fields = [] }: FormProps) => {
     const handleFormSubmit = () => {
         setIsFormRender(false)
     }
-    const renderDynamicComponent = (field: Field) => {
+    const renderDynamicComponent = (field: FieldProps) => {
         return React.createElement(
-            (field: Field) => <div className='text-sm'>The component {field.type} has not been created yet.</div>
+            (field: FieldProps) => <div className='text-sm'>The component {field.type} has not been created yet.</div>
         );
     }
     useEffect(() => {
@@ -48,7 +48,7 @@ const Form = ({ formTitle, formDescription, fields = [] }: FormProps) => {
                     <h1 className="text-center text-lg">{formTitle}</h1>
                     <p className="text-center mt-2 mb-8 text-sm">{formDescription}</p>
                     <div className='w-2/3 mx-auto my-0'>
-                        {fields.map((field: Field) => {
+                        {fields.map((field: FieldProps) => {
                             const Component = componentList[field.type as keyof ComponentMapper]
                             return (
                                 <div className='mt-2' key={field.id}>
@@ -57,6 +57,7 @@ const Form = ({ formTitle, formDescription, fields = [] }: FormProps) => {
                                         : renderDynamicComponent(field)
                                     }
                                 </div>
+                                
                             )
                         })}
                         <button

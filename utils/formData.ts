@@ -14,6 +14,17 @@ export const formData = {
             },
         },
         {
+            id: 'userName1',
+            type: 'select',
+            label: 'User Name 2',
+            required: true,
+            placeholder: 'Enter your user name',
+            options:[
+                {label: 'Male', value: 'male'},
+                {label: 'Female', value: 'female'},
+            ]
+        },
+        {
             id: 'emailAddress',
             type: 'email',
             label: 'Email',

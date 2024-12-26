@@ -6,8 +6,8 @@ import PasswordInput from "@/components/PasswordInput/PasswordInput";
 import RadioInput from "@/components/RadioInput/RadioInput";
 import TextareaInput from "@/components/TextareaInput/TextareaInput";
 import TextInput from "@/components/TextInput/TextInput";
-import { Dropdown } from "react-day-picker";
 import { ComponentMapper } from "./types";
+import Dropdown from "@/components/Dropdown/Dropdown";
 
 export const componentList : ComponentMapper = {
     text: TextInput,
